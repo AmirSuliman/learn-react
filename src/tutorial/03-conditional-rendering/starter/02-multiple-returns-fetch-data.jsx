@@ -28,6 +28,7 @@ const MultipleReturnsFetchData = () => {
     <img style={{width: "25%", borderRadius: "25px"}} src={user.avatar_url} alt={user.name} />
     <h2>{user.name}</h2>
     <h3>Works at {user.company} </h3>
+    <p>{user.bio}</p>
   </div>
 };
 export default MultipleReturnsFetchData;
