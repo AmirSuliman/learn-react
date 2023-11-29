@@ -7,6 +7,9 @@ const ReducerBasics = () => {
     let newPeople = people.filter((person) => person.id !== id);
     setPeople(newPeople);
   };
+  const resetItem = () => {
+    setPeople(data)
+  }
   return (
     <div>
       {people.map((person) => {
@@ -18,13 +21,19 @@ const ReducerBasics = () => {
           </div>
         );
       })}
-      <button
+      {people.length < 1 ? (<button
+        className='btn'
+        style={{ marginTop: '2rem' }}
+        onClick={() => resetItem()}
+      >
+        reset 
+      </button>): (<button
         className='btn'
         style={{ marginTop: '2rem' }}
         onClick={() => setPeople([])}
       >
         clear items
-      </button>
+      </button>)}
     </div>
   );
 };

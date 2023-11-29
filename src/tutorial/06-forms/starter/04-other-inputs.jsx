@@ -1,6 +1,19 @@
 import { useState } from 'react';
 const frameworks = ['react', 'angular', 'vue', 'svelte'];
 const OtherInputs = () => {
+  const [shipping, setShipping] = useState(false);
+  const [framework, setFramework] = useState('react')
+
+  const handleShipping = (e) => {
+    setShipping(e.target.checked)
+    console.log(shipping)
+  }
+
+  const handleFramework = (e) => {
+    setFramework(e.target.value)
+    console.log(framework)
+  }
+
   return (
     <div>
       <form className='form'>
@@ -8,11 +21,17 @@ const OtherInputs = () => {
         {/* name */}
         <div className='form-row' style={{ textAlign: 'left' }}>
           <label htmlFor='shipping'> Free Shipping </label>
+          <input type='checkbox' id='shipping'  checked={shipping} onChange={handleShipping} />
         </div>
         <div className='form-row' style={{ textAlign: 'left' }}>
           <label htmlFor='framework' className='form-label'>
             Framework
           </label>
+          <select name="framework" id="framework" value={shipping} onChange={handleFramework}>
+            {frameworks.map((framework) => {
+              return <option key={framework}>{framework}</option>
+            })}
+          </select>
         </div>
         <button type='submit' className='btn btn-block'>
           submit

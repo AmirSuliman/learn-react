@@ -8,6 +8,7 @@ const FetchData = () => {
     async function fetchData() {
       try {
         const response = await fetch(url);
+        console.log(response);
         const users = await response.json();
         setUsers(users);
         console.log(users)
